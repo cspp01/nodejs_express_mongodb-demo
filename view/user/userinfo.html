@@ -1,0 +1,29 @@
+<%- include( '../_pub/head.html' )%>
+<body>
+<%- include( '../_pub/header.html' ) %>
+<main id="register-main" style="font-size:17px;text-align:right;padding:250px 0;">
+    <section>
+        <table style="margin:0 auto;">
+            <caption><header><%- title %></header></caption>
+            <tr>
+                <td>用户名：</td>
+                <td style="text-align:left;"><%= userInfo.name %></td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td style="text-align:left;"><%= userInfo.sex == 1 ? '男' : '女'  %></td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td style="text-align:left;"><%= userInfo.age %></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td style="text-align:left;"><%= userInfo.pass %></td>
+            </tr>
+        </table>
+    </section>
+</main>
+<%- include( '../_pub/footer.html' ) %>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<%- include( './_pub/head.html' )%>
+<body>
+<%- include( './_pub/header.html' ) %>
+<main id="register-main">
+    <section>
+        <header>
+            <section class="logo" data-name="cc">coku</section>
+            <p><%- title %></p>
+        </header>
+        <div class="register-inp">
+            <input type="text" name="username" placeholder="请输入用户名"/>
+            <div>
+                <label><input type="radio" name="sex" value="1" checked/>男</label>
+                <label><input type="radio" name="sex" value="0" />女</label>
+            </div>
+            <input type="text" name="age" placeholder="请输入年龄"/>
+            <input type="password" name="password" placeholder="请输入密码"/>
+            <input type="password" name="againpassword" placeholder="请再次输入密码"/>
+            <a href="javascript:p();">注册</a>
+        </div>
+    </section>
+</main>
+<%- include( './_pub/footer.html' ) %>
+</body>
+<script>
+    function p() {
+        let xttp,
+            user = document.getElementsByName( 'username' )[ 0 ].value,
+            sexs = document.getElementsByName( 'sex' ),
+            age = document.getElementsByName( 'age' )[ 0 ].value,
+            pass = document.getElementsByName( 'password' )[ 0 ].value,
+            sexe = null;
+        sexs.forEach( function( x ){
+            x.checked && ( sexe = x );
+        } );
+        let sex = sexe.value;
+        if( window.XMLHttpRequest ) {
+            xttp = new XMLHttpRequest();
+        } else {
+            xttp = new ActiveXObject( 'Microsoft XMLHTTP' );
+        }
+        xttp.open( 'POST', '/register' );
+        xttp.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+        xttp.send( 'username=' + user + '&password=' + pass + '&sex=' + sex + '&age=' + age );
+        xttp.onreadystatechange = () => {
+            if( xttp.readyState == 4 && xttp.status == 200 ) {
+                let ob = JSON.parse( xttp.responseText );
+                alert( ob.msg );
+                if( ob.cod === 201 ) {
+                    location.href = '../login';
+                }
+            }
+        };
+    }
+</script>
+</html>

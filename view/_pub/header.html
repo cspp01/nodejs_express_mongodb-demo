@@ -1,0 +1,26 @@
+<header id="header">
+    <nav class="clearfix">
+        <section class="logo" data-name="cc">coku</section>
+        <section class="menu">
+            <ul class="menu-ul clearfix">
+                <li><a href="/">首页</a></li>
+                <li><a href="/product">产品</a></li>
+                <li><a href="">移动端</a></li>
+                <li><a href="/waycoku">为什么选择可酷</a></li>
+                <li><a href="/contact">联系我们</a></li>
+                <li class="last">
+                    <% if( userInfo == null ) { %>
+                    <a href="./register">注册</a>
+                    <a href="./login">登录</a>
+                    <% } else { %>
+                    <a href="" class="in"><%= userInfo.name.substr( 0, 1 ) %></a>
+                    <ul class="user-in">
+                        <li><a href="/userinfo">个人信息</a></li>
+                        <li><a href="/?t=lot">退出登录</a></li>
+                    </ul>
+                    <% } %>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</header>

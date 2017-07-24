@@ -1,0 +1,43 @@
+<%- include( './_pub/head.html' )%>
+<body>
+<%- include( './_pub/header.html' ) %>
+<main id="register-main">
+    <section>
+        <header>
+            <section class="logo" data-name="cc">coku</section>
+            <p><%- title %></p>
+        </header>
+        <div class="register-inp">
+            <input type="text" name="username" placeholder="请输入用户名"/>
+            <input type="password" name="password" placeholder="请输入密码"/>
+            <a href="javascript:p();">登录</a>
+        </div>
+    </section>
+</main>
+<%- include( './_pub/footer.html' ) %>
+</body>
+<script>
+    function p() {
+        let xttp,
+            user = document.getElementsByName( 'username' )[ 0 ].value,
+            pass = document.getElementsByName( 'password' )[ 0 ].value;
+        if( window.XMLHttpRequest ) {
+            xttp = new XMLHttpRequest();
+        } else {
+            xttp = new ActiveXObject( 'Microsoft XMLHTTP' );
+        }
+        xttp.open( 'POST', './login' );
+        xttp.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+        xttp.send( 'username=' + user + '&password=' + pass );
+        xttp.onreadystatechange = () => {
+            if( xttp.readyState === 4 && xttp.status === 200 ) {
+                let ob = JSON.parse( xttp.responseText );
+                alert( ob.msg );
+                if( ob.cod === 201 ) {
+                    location.href = '../';
+                }
+            }
+        };
+    }
+</script>
+</html>

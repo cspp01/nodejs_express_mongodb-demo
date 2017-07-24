@@ -1,0 +1,110 @@
+#header{
+    height:60px;
+    border-bottom:1px solid #dcdcdc;
+    font-size:14px;
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba( 255, 255, 255, .9 );
+}
+/* header nav */
+#header nav{
+    width:1000px;
+    margin:0 auto;
+    height:100%;
+}
+#header nav > section{
+    float:left;
+    height:100%;
+}
+
+/* nav logo */
+.logo{
+    color:#333;
+    margin-right:200px;
+    line-height:60px;
+}
+#header .logo:before{
+    content:'';
+    display:inline-block;
+    width:31px;
+    height:31px;
+    border-radius:50% 0;
+    background: #ff2d1f;
+    vertical-align:middle;
+    margin-right:5px;
+}
+.logo:after{
+    content:attr( data-name );
+    color: #ff2d1f;
+}
+/* nav menu */
+#header .menu{
+    float:right;
+}
+#header .menu-ul > li{
+    float:left;
+}
+#header .menu-ul > li a{
+    padding:0 20px;
+    line-height:60px;
+    color:#333;
+}
+#header .menu-ul > li.last{
+    font-size:0;
+    margin-left:20px;
+    position:relative;
+}
+#header .user-in{
+    display:none;
+    position:absolute;
+    top:63px;
+    right:0;
+    width:119px;
+    background:#efefef;
+    border-radius:3px;
+}
+#header .menu-ul > li.last a:first-child{
+    background: #ff2d1f;
+    color:#fff;
+    border-radius:3px;
+}
+#header .menu-ul > li.last a:first-child.in{
+    background: none;
+    color:#333;
+    width:40px;
+    height:40px;
+    margin:0 auto;
+    display:block;
+    margin-top:10px;
+    border:1px solid #9a9a9a;
+    border-radius:50%;
+    padding:0;
+    text-align:center;
+    line-height:40px;
+    font-size:20px;
+}
+#header .menu-ul > li.last a{
+    padding:6px 30px;
+    font-size:14px;
+    color:#ff2d1f;
+}
+#header .menu-ul > li.last:hover{
+    height:100px;
+}
+#header .menu-ul > li.last:hover .user-in{
+    display:block;
+}
+#header .menu-ul > li.last .user-in a{
+    line-height:40px;
+    background:none;
+    color:#333;
+    padding:0;
+    text-align:center;
+    display:block;
+}
+#header .menu-ul > li.last .user-in a:hover{
+    line-height:40px;
+    background:none;
+    color:#ff2d1f;
+}
