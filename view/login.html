@@ -10,15 +10,19 @@
         <div class="register-inp">
             <input type="text" name="username" placeholder="请输入用户名"/>
             <input type="password" name="password" placeholder="请输入密码"/>
-            <a href="javascript:p();">登录</a>
+            <a href="javascript:void( 0 );" id="_submit">登录</a>
         </div>
     </section>
 </main>
 <%- include( './_pub/footer.html' ) %>
 </body>
 <script>
+    window.onload = function() {
+        var _submit = document.getElementById( '_submit' );
+        _submit.onclick = p;
+    };
     function p() {
-        let xttp,
+        var xttp,
             user = document.getElementsByName( 'username' )[ 0 ].value,
             pass = document.getElementsByName( 'password' )[ 0 ].value;
         if( window.XMLHttpRequest ) {
@@ -29,9 +33,9 @@
         xttp.open( 'POST', './login' );
         xttp.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
         xttp.send( 'username=' + user + '&password=' + pass );
-        xttp.onreadystatechange = () => {
+        xttp.onreadystatechange = function() {
             if( xttp.readyState === 4 && xttp.status === 200 ) {
-                let ob = JSON.parse( xttp.responseText );
+                var ob = JSON.parse( xttp.responseText );
                 alert( ob.msg );
                 if( ob.cod === 201 ) {
                     location.href = '../';

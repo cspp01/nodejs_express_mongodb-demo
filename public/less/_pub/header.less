@@ -6,17 +6,34 @@
     top:0;
     width:100%;
     background:rgba( 255, 255, 255, .9 );
+    nav{
+        width:1000px;
+        margin:0 auto;
+        height:100%;
+        & > section{
+            float:left;
+            height:100%;
+        }
+        .menu{
+            float:right;
+        }
+    }
+    .logo:before{
+        content:'';
+        display:inline-block;
+        width:31px;
+        height:31px;
+        border-radius:50% 0;
+        background: #ff2d1f;
+        vertical-align:middle;
+        margin-right:5px;
+    }
+    .logo:after{
+        content:attr( data-name );
+        color: #ff2d1f;
+    }
 }
 /* header nav */
-#header nav{
-    width:1000px;
-    margin:0 auto;
-    height:100%;
-}
-#header nav > section{
-    float:left;
-    height:100%;
-}
 
 /* nav logo */
 .logo{
@@ -24,31 +41,67 @@
     margin-right:200px;
     line-height:60px;
 }
-#header .logo:before{
-    content:'';
-    display:inline-block;
-    width:31px;
-    height:31px;
-    border-radius:50% 0;
-    background: #ff2d1f;
-    vertical-align:middle;
-    margin-right:5px;
-}
-.logo:after{
-    content:attr( data-name );
-    color: #ff2d1f;
-}
 /* nav menu */
-#header .menu{
-    float:right;
-}
 #header .menu-ul > li{
     float:left;
+    &:nth-child(2){
+        background:url( ../img/pr_gif.gif );
+        transition-property:all;
+        transition-duration:.3s;
+        a{
+            color:rgba(255,255,255,.9);
+        }
+        &:hover{
+            box-shadow:0 0 20px 0 #999;
+            transform:scale( 1.1 );
+            a{
+                //color: #f0d24a;
+            }
+        }
+    }
+    &:nth-child(3){
+        width:82px;
+        height:60px;
+        position:relative;
+        a{
+            &:hover{
+                +div{
+                    display:block;
+                }
+                display:inline-block;
+                height:280px;
+                width:220px;
+                position:absolute;
+                z-index:10;
+            }
+        }
+        div{
+            display:none;
+            position:fixed;
+            top:60px;
+            padding:10px;
+            background:#fff;
+            box-shadow:0 0 20px 0 #333;
+        }
+        &:hover{
+            +li{
+                a{
+                    position:relative;
+                    z-index:20;
+                }
+            }
+        }
+    }
 }
 #header .menu-ul > li a{
     padding:0 20px;
     line-height:60px;
     color:#333;
+    transition-property:all;
+    transition-duration:.3s;
+    &:hover{
+        color: #ff6d41;
+    }
 }
 #header .menu-ul > li.last{
     font-size:0;

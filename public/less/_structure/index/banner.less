@@ -1,6 +1,6 @@
-#index-main .banner{
+#index-main .banner,#waycoku-main .banner{
     height:559px;
-    background:url( ../../../img/index-banner-bg.JPG );
+    background:url( http://otnhjxlus.bkt.clouddn.com/banner.jpg );
     background-position:center top;
     text-align:center;
     & > div{
@@ -16,7 +16,6 @@
         & > div{
             width:566px;
             height:330px;
-            //background:rgba( 0, 0, 0, .1 );
             margin:0 0 0 200px;
             padding:50px;
             border-radius:3px;
@@ -24,15 +23,23 @@
                 margin-top:50px;
                 a{
                     padding:10px 30px;
-                    background:#ff2d1f;
                     color:#fff;
                     border-radius:3px;
                     font-size:15px;
+                    margin-right:20px;
+                    border:1px solid #fff;
+                    transition-property:all;
+                    transition-duration:.3s;
                     &:first-child{
-                        padding:10px 30px;
-                        background: #424ddd;
-                        color:#fff;
-                        margin-right:20px;
+                        background: rgb(255, 109, 65);
+                        border:1px solid rgb(255, 109, 65);
+                    }
+                    &:nth-of-type(2){
+                        &:hover{
+                            border:1px solid rgb(249, 249, 249);
+                            background: rgb(249, 249, 249);
+                            color:#333;
+                        }
                     }
                 }
             }

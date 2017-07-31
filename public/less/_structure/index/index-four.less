@@ -7,7 +7,7 @@
         width:1000px;
         margin: 0 auto;
         height:297px;
-        padding-top:50px;
+        padding-top:10px;
         header,p{
             color:#fff;
             font-size:40px;
@@ -22,6 +22,27 @@
             border-radius:3px;
             & > div{
                 margin-top:50px;
+                a{
+                    padding:10px 30px;
+                    color:#fff;
+                    border-radius:3px;
+                    font-size:15px;
+                    margin-right:20px;
+                    border:1px solid #fff;
+                    transition-property:all;
+                    transition-duration:.3s;
+                    &:first-child{
+                        background: rgb(255, 109, 65);
+                        border:1px solid rgb(255, 109, 65);
+                    }
+                    &:nth-of-type(2){
+                        &:hover{
+                            border:1px solid rgb(249, 249, 249);
+                            background: rgb(249, 249, 249);
+                            color:#333;
+                        }
+                    }
+                }
             }
         }
     }
