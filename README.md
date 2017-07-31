@@ -7,7 +7,7 @@
 
 ## 项目地址
 
-[查看请戳这里](hhttp://cc.s1.natapp.link/)
+[查看请戳这里](http://cc.s1.natapp.link/)
 
 
 # 说明
